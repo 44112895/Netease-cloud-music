@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5实现本地JSON文件的读写</title>
+    <style>
+        body {
+            background-color: #2c3e50;
+        }
+
+        div {
+            background-color: #5f9ea0;
+            padding: 10px 30px;
+        }
+
+        h1 {
+            color: #dd1a21;
+        }
+
+        label {
+            display: inline-block;
+            width: 150px;
+            margin: 10px 0;
+        }
+
+        span {
+            color: #1c7430;
+        }
+
+        #message * {
+            font-size: 16px;
+            font-weight: normal;
+            margin: 20px 0;
+        }
+
+        #message h3 {
+            color: #dd1a21;
+        }
+
+        #message h4 {
+            text-indent: 32px;
+        }
+
+        #message h5 {
+            text-indent: 64px;
+        }
+
+        #message h6 {
+            text-indent: 96px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>请选择一个json文件，比如：data/test.json</h1>
+
+        <label for="files">点击选择文件：</label>
+        <input type="file" id="files"><span>选择文件后，按F12查看文件输出</span><br/>
+
+        <label for="name">姓名：</label>
+        <input type="text" id="name" placeholder="请输入新的姓名"><br/>
+
+        <label for="age">年龄：</label>
+        <input type="text" id="age" placeholder="请输入新的年龄"><br/>
+
+        <label for="fileName">文件名：</label>
+        <input type="text" id="fileName" placeholder="请输入新的文件名" value="newFileName.json"><br/>
+
+        <label for="export">点击修改</label>
+        <button id="export">修改</button>
+    </div>
+    <hr/>
+    <div id="message">
+        <h3>参考与说明：</h3>
+
+        <h4>1、HTML5实现本地JSON文件的读写：<a href="https://www.cnblogs.com/gamedaybyday/p/9906542.html" target="_blank">https://www.cnblogs.com/gamedaybyday/p/9906542.html</a></h4>
+        <h5>注意：</h5>
+        <h6>FileSaver和FileWriter都是不能直接修改保存指定文件的，只能生成一个文件，然后浏览器以"下载"的形式保存</h6>
+
+        <h4>2、JS创建、写入、读取本地文件（txt）：<a href="https://blog.csdn.net/zhengyikuangge/article/details/72848789" target="_blank">https://blog.csdn.net/zhengyikuangge/article/details/72848789</a></h4>
+        <h5>注意：</h5>
+        <h6>ActiveXObject 这玩意根本不能用，IE10 和 Chrome都试了</h6>
+    </div>
+</body>
+<script src="data/FileSaver.js"></script>
+<script>
+    /*读取操作*/
+    let inputElement = document.getElementById('files');
+    inputElement.onchange = function () {
+        let selectedFile = inputElement.files[0];//获取读取的File对象
+
+        console.log("文件名：" + selectedFile.name + "\n大小：" + selectedFile.size);//读取选中文件的文件名和大小
+
+        let reader = new FileReader();//这里是核心！！！读取操作就是由它完成的
+        reader.readAsText(selectedFile);//读取文件的内容
+        reader.onload = function () {
+            console.log("读取结果：", this.result);//当读取完成之后会回调这个函数，然后此时文件的内容存储到了result中。直接操作即可。
+
+            console.log("读取结果转为JSON：");
+            let json = JSON.parse(this.result);
+            console.log(json.name);
+            console.log(json.age);
+        };
+    };
+
+    /*写入操作*/
+    let button = document.getElementById("export");
+    button.onclick = function () {
+        let newName = document.getElementById('name').value;
+        let newAge = document.getElementById('age').value;
+        let newFileName = document.getElementById('fileName').value;
+        let data = {
+            "name": newName,
+            "age": newAge
+        }
+        let content = JSON.stringify(data);
+        let blob = new Blob([content], {type: "text/plain;charset=utf-8"});
+        saveAs(blob, newFileName);
+    }
+</script>
+</html>

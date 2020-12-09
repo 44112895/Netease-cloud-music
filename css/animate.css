@@ -1,0 +1,33 @@
+/*点击喜欢和收藏的样式*/
+.like {
+    /*color: red;*/
+    /*overflow: hidden;
+    fill: #f47920;*/
+    background-color: red;
+}
+
+/*图标切换改变z-index属性*/
+.hide {
+    z-index: -1;
+}
+
+/*播放列表中，当前歌曲项*/
+#list>.content>.current {
+    background-color: #6c757d;
+}
+
+/*封面调用动画*/
+#content>.top>.left>.cover {
+    animation: coverRotate 20s linear infinite;
+    animation-play-state: paused;
+}
+
+/*定义封面旋转的动画*/
+@keyframes coverRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

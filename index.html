@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网抑云音乐</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_2127848_prvj7skpp6.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <script src="scripts/jquery-3.5.1.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <div id="box">
+        <div id="header">
+            <div class="left">
+                <i class="icon iconfont icon-netease-cloud-music-line" title="logo"></i>
+                <span>网抑云音乐</span>
+            </div>
+            <div class="center">
+                <label for="search"></label>
+                <input type="text" id="search" placeholder="搜索音乐，视频，歌词，电台">
+                <i class="icon iconfont icon-search" title="搜索"></i>
+            </div>
+            <div class="right">
+                <div class="left">
+                    <span></span>
+                    <img src="" alt="">
+                    <label for="login"></label>
+                    <input type="button" id="login" value="登录">
+                </div>
+                <div class="center">
+                    <i class="icon iconfont icon-pifu" title="皮肤"></i>
+                    <label for="color"></label>
+                    <input type="color" id="color">
+                    <i class="icon iconfont icon-youxiang" title="邮箱"></i>
+                    <i class="icon iconfont icon-shezhi" title="设置"></i>
+                    <span>|</span>
+                </div>
+                <div class="right">
+                    <i class="icon iconfont icon-minimize" title="最小化"></i>
+                    <i class="icon iconfont icon-maximize" title="最大化"></i>
+                    <i class="icon iconfont icon-biaoqing" title="关闭"></i>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div class="top">
+                <div class="left">
+                    <div class="cover">
+                        <img src="" alt="">
+                    </div>
+                    <div class="btn">
+                        <div class="love">
+                            <i class="icon iconfont icon-xihuan" title="喜欢"></i>&nbsp;&nbsp;喜欢
+                        </div>
+                        <div class="collection">
+                            <i class="icon iconfont icon-shoucang" title="收藏"></i>&nbsp;&nbsp;收藏
+                        </div>
+                        <div class="download">
+                            <i class="icon iconfont icon-download" title="下载"></i>&nbsp;&nbsp;VIP下载
+                        </div>
+                        <div class="share">
+                            <i class="icon iconfont icon-fenxiang" title="分享"></i>&nbsp;&nbsp;分享
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="title"></div>
+                    <div class="message">
+                        专辑：<span></span>
+                        歌手：<span></span>
+                        来源：<span>搜索页</span>
+                    </div>
+                    <div class="lyric"></div>
+                </div>
+            </div>
+            <div class="content">
+                <div>
+                    <span>听友评论</span>（已有<span>0</span>条评论）
+                </div>
+                <hr/>
+                <div class="edit">
+                    <div class="tip">
+                        <div>
+                            <i class="icon iconfont icon-24"></i>&nbsp;&nbsp;发表评论
+                        </div>
+                        <div>
+                            <i class="icon iconfont icon-xiaolian"></i>&nbsp;&nbsp;@
+                        </div>
+                    </div>
+                </div>
+                <div class="show">
+                    <!--<div>
+                        <div></div>
+                        <div class="content">
+                            <p><span>111：</span>1213314</p>
+                            <span>111</span><span>111</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div></div>
+                        <div class="content">
+                            <p><span>111：</span>1213314</p>
+                            <span>111</span><span>111</span>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="control">
+                <i class="icon iconfont icon-shangyishou" title="上一首"></i>
+                <i class="icon iconfont icon-bofang2" title="播放"></i>
+                <i class="icon iconfont icon-zanting" title="暂停"></i>
+                <i class="icon iconfont icon-xiayishou" title="下一首"></i>
+            </div>
+            <div class="progress">
+                <audio src="">
+                    您的浏览器不支持audio元素。
+                </audio>
+                <span id="current">00:00</span>
+                <label for="progress"></label>
+                <input type="range" id="progress" min="0" max="" step="1" value="0">
+                <span id="time">00:00</span>
+            </div>
+            <div class="volume">
+                <i class="icon iconfont icon-shengyin" title="音量"></i>
+                <i class="icon iconfont icon-jingyin" title="静音"></i>
+                <label for="volume"></label>
+                <input type="range" id="volume" min="0" max="1" step="0.1" value="0.6">
+            </div>
+            <div class="manner">
+                <div>
+                    <i class="icon iconfont icon-icon-" title="列表循环"></i>
+                    <i class="icon iconfont icon-danquxunhuan" title="单曲循环"></i>
+                    <i class="icon iconfont icon-xunhuan" title="随机播放"></i>
+                </div>
+                <div>
+                    <i class="icon iconfont icon-geciweidianji" title="桌面歌词"></i>
+                </div>
+                <div>
+                    <i class="icon iconfont icon-bofangliebiao" title="播放列表"></i>
+                </div>
+            </div>
+        </div>
+        <div id="list" class="hide">
+            <div class="btn">
+                <button>播放列表</button>
+                <button>历史记录</button>
+                <i class="icon iconfont icon-biaoqing"></i>
+            </div>
+            <div class="content"></div>
+            <!--<div class="history"></div>-->
+        </div>
+        <div class="hidden"></div>
+        <div class="login hide">
+            <div class="top">
+                <span>登录</span>
+                <span><i class="icon iconfont icon-biaoqing"></i></span>
+            </div>
+            <div class="middle">
+                <div>
+                    <label for="username">用户名</label>
+                    <input type="text" id="username" placeholder="请输入用户名" required><br/>
+                    <label for="password">密码</label>
+                    <input type="password" id="password" placeholder="请输入密码" required>
+                </div>
+            </div>
+            <div class="bottom">
+                <button>还没有账户？马上注册</button>
+                <button>登录</button>
+            </div>
+        </div>
+        <div class="show hide">
+            <div></div>
+            <label for="textarea"></label>
+            <textarea id="textarea" placeholder="请输入你的评论"></textarea>
+            <div>
+                <button type="button">取消</button>
+                <button type="button">评论</button>
+            </div>
+        </div>
+    </div>
+    <div class="desktop"></div>
+</body>
+</html>
